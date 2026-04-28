@@ -1,0 +1,138 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background-color: #0f0f12; /* To'q qora fon */
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+}
+
+.login-container {
+    width: 100%;
+    max-width: 400px;
+    padding: 40px 20px;
+    text-align: center;
+}
+
+/* Logo dizayni */
+.logo-section {
+    margin-bottom: 40px;
+}
+
+.logo-icon {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto 10px;
+    border: 4px solid;
+    border-image: linear-gradient(45deg, #00f2fe, #bc4efd) 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+    font-weight: bold;
+    border-radius: 20px;
+    box-shadow: 0 0 20px rgba(188, 78, 253, 0.4);
+}
+
+.logo-section h1 {
+    letter-spacing: 5px;
+    font-size: 28px;
+    background: linear-gradient(to right, #00f2fe, #bc4efd);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* Forma elementlari */
+h2 {
+    font-weight: 400;
+    margin-bottom: 30px;
+    font-size: 20px;
+}
+
+.input-group {
+    margin-bottom: 15px;
+    position: relative;
+}
+
+input {
+    width: 100%;
+    padding: 15px;
+    background: #1a1a20;
+    border: 1px solid #333;
+    border-radius: 12px;
+    color: white;
+    font-size: 14px;
+    outline: none;
+    transition: 0.3s;
+}
+
+input:focus {
+    border-color: #bc4efd;
+    box-shadow: 0 0 10px rgba(188, 78, 253, 0.2);
+}
+
+.toggle-password {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    opacity: 0.5;
+}
+
+/* Gradient Tugma */
+.login-btn {
+    width: 100%;
+    padding: 15px;
+    margin-top: 10px;
+    border: none;
+    border-radius: 12px;
+    background: linear-gradient(90deg, #00f2fe, #bc4efd);
+    color: white;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.login-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 242, 254, 0.4);
+}
+
+/* Linklar */
+.form-footer {
+    margin-top: 25px;
+}
+
+.form-footer a {
+    color: #aaa;
+    text-decoration: none;
+    font-size: 13px;
+    display: block;
+    margin-bottom: 10px;
+}
+
+.signup-link {
+    color: white !important;
+    font-weight: 600;
+    display: inline !important;
+}
+
+.meta-footer {
+    margin-top: 50px;
+    font-size: 12px;
+    color: #555;
+}
+
+.meta-footer span {
+    color: #888;
+    font-weight: bold;
+}
