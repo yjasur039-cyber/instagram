@@ -3,45 +3,54 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Frenzy Login</title>
+    <title>Frenzy Login - Dark Mode</title>
     <link rel="stylesheet" href="style.css">
-    <!-- Ikonkalar uchun Google Fonts linki -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
 </head>
 <body>
-    <div class="login-wrapper">
-        <div class="login-box">
-            <header>
-                <div class="header-main">
-                    <span class="fz-logo">FZ</span>
-                    <h1 class="frenzy-title">FRENZY</h1>
-                </div>
-                <p class="tagline">CONNECT AND DISCOVER</p>
-            </header>
+    <div class="login-card">
+        <header class="header">
+            <span class="fz">FZ</span>
+            <h1 class="brand-name">FRENZY</h1>
+            <h2 class="login-text">Войти в Frenzy</h2>
+        </header>
 
-            <form class="login-form">
-                <div class="input-container">
-                    <span class="material-symbols-outlined input-icon">alternate_email</span>
-                    <input type="email" value="yjasur039@gmail.com" required placeholder="yjasur039@gmail.com">
+        <form class="login-form">
+            <div class="input-field active">
+                <span class="material-symbols-outlined icon">alternate_email</span>
+                <div class="input-column">
+                    <label>Имя пользователя, номер мобильного телефона или электронный ад...</label>
+                    <input type="email" value="yjasur039@gmail.com">
                 </div>
-                
-                <div class="input-container">
-                    <input type="password" placeholder="********" required>
-                    <span class="material-symbols-outlined input-icon password-eye">visibility</span>
-                </div>
+            </div>
 
-                <div class="action-buttons">
-                    <button type="submit" class="login-btn">LOG IN</button>
-                    <a href="#" class="forgot-link">Forgot Password?</a>
+            <div class="input-field">
+                <div class="input-column">
+                    <label>Пароль</label>
+                    <input type="password" value="12345678">
                 </div>
-            </form>
-        </div>
+                <span class="material-symbols-outlined icon">visibility</span>
+            </div>
 
-        <div class="login-footer">
-            <p>New to Frenzy? <a href="#" class="signup-link">Sign Up</a></p>
-            <p class="meta-ai">Powered by Meta AI</p>
-            <p class="build-tomorrow">BUILDING TOMORROW TOGETHER</p>
-        </div>
+            <button type="submit" class="login-btn">Войти</button>
+
+            <a href="#" class="forgot-pwd">Забыли пароль?</a>
+
+            <div class="divider-line"></div>
+
+            <button type="button" class="fb-btn">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/b/b8/2021_Facebook_icon.svg" alt="fb" width="18">
+                Войти через Facebook
+            </button>
+
+            <button type="button" class="create-acc-btn">Создать новый аккаунт</button>
+        </form>
+
+        <footer class="footer">
+            <div class="footer-divider"></div>
+            <p class="meta-txt">Powered by Meta AI</p>
+            <p class="tomorrow-txt">BUILDING TOMORROW TOGETHER</p>
+        </footer>
     </div>
 </body>
 </html>
