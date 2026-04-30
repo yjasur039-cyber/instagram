@@ -2,123 +2,126 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 body {
-    background: radial-gradient(circle at center, #1a1a2e 0%, #000000 100%);
+    background-color: #f0f2f5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-family: 'Poppins', sans-serif;
-    overflow: hidden;
 }
 
-.frenzy-wrapper {
-    position: relative;
-    width: 100%;
-    max-width: 420px;
-    padding: 20px;
-}
-
-.glass-card {
-    background: rgba(255, 255, 255, 0.03);
-    backdrop-filter: blur(15px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 30px;
+.login-container {
+    background-color: #ffffff;
     padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
     text-align: center;
-    box-shadow: 0 25px 50px rgba(0,0,0,0.5);
 }
 
-.f-logo {
-    width: 70px;
-    height: 70px;
-    background: linear-gradient(45deg, #00d2ff, #9d50bb);
-    margin: 0 auto 15px;
-    border-radius: 15px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-family: 'Orbitron', sans-serif;
+.logo-small {
+    display: block;
+    text-align: left;
     font-weight: bold;
-    font-size: 28px;
-    color: white;
-    box-shadow: 0 0 20px rgba(0, 210, 255, 0.5);
+    font-size: 1.2rem;
+    color: #1c1e21;
+    margin-bottom: 20px;
 }
 
-.brand-name {
-    font-family: 'Orbitron', sans-serif;
-    letter-spacing: 4px;
-    font-size: 26px;
-    color: white;
+.main-logo {
+    color: #1877f2; /* Facebook ko'k rangi */
+    font-size: 2.5rem;
+    letter-spacing: 2px;
+    margin-bottom: 5px;
 }
 
 .tagline {
-    font-size: 10px;
-    color: #888;
+    font-size: 0.9rem;
+    color: #606770;
     margin-bottom: 30px;
-    letter-spacing: 2px;
+    font-weight: 500;
 }
 
-.input-field {
+.input-group {
+    background-color: #f5f6f7;
+    border: 1px solid #dddfe2;
+    border-radius: 10px;
     margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    padding: 0 15px;
 }
 
-input {
-    width: 100%;
-    padding: 15px;
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 12px;
-    color: white;
-    outline: none;
-    transition: 0.3s;
-}
-
-input:focus {
-    border-color: #00d2ff;
-    background: rgba(255, 255, 255, 0.08);
-}
-
-.glow-btn {
-    width: 100%;
-    padding: 15px;
+.input-group input {
+    background: transparent;
     border: none;
-    border-radius: 12px;
-    background: linear-gradient(90deg, #00d2ff, #ff007f);
+    padding: 12px;
+    width: 100%;
+    outline: none;
+    font-size: 1rem;
+    color: #1c1e21;
+}
+
+.material-symbols-outlined {
+    color: #8d949e;
+    font-size: 20px;
+}
+
+.login-btn {
+    background: linear-gradient(to right, #1877f2, #166fe5);
     color: white;
+    border: none;
+    width: 100%;
+    padding: 12px;
+    border-radius: 25px;
+    font-size: 1.1rem;
     font-weight: bold;
     cursor: pointer;
     margin-top: 10px;
-    transition: 0.4s;
-    text-shadow: 0 0 5px rgba(255,255,255,0.5);
+    transition: transform 0.2s, box-shadow 0.2s;
 }
 
-.glow-btn:hover {
-    box-shadow: 0 0 25px rgba(255, 0, 127, 0.6);
-    transform: scale(1.02);
+.login-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(24, 119, 242, 0.4);
 }
 
-.links {
-    margin-top: 20px;
-}
-
-.links a {
-    color: #888;
+.forgot-password {
+    display: block;
+    margin-top: 15px;
+    color: #1877f2;
     text-decoration: none;
-    font-size: 12px;
+    font-size: 0.9rem;
 }
 
-.links .up {
-    color: white;
+.login-footer {
+    margin-top: 30px;
+}
+
+.signup-link {
+    color: #1877f2;
+    text-decoration: none;
     font-weight: bold;
 }
 
-.footer {
-    margin-top: 40px;
-    opacity: 0.4;
+.divider {
+    height: 1px;
+    background-color: #dddfe2;
+    margin: 20px 0;
 }
 
-.footer p { font-size: 11px; }
-.footer small { font-size: 8px; letter-spacing: 1px; }
+.meta-ai {
+    color: #8d949e;
+    font-size: 0.85rem;
+}
+
+.build-tomorrow {
+    color: #606770;
+    font-size: 0.75rem;
+    margin-top: 10px;
+    letter-spacing: 1px;
+}
