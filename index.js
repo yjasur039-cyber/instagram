@@ -1,39 +1,53 @@
-// Sahifalarni boshqarish
-function showPage(id) {
+// Sahifalar orasida almashish
+function togglePage(pageId) {
     document.querySelectorAll('.card').forEach(c => c.style.display = 'none');
-    document.getElementById(id).style.display = 'block';
-    document.body.style.background = id.includes('fb') ? '#f0f2f5' : '#000';
-}
-
-// Sanalarni to'ldirish funksiyasi (1980 - 2026)
-function initSelectors(dayId, monthId, yearId) {
-    const d = document.getElementById(dayId);
-    const m = document.getElementById(monthId);
-    const y = document.getElementById(yearId);
-
-    for (let i = 1; i <= 31; i++) d.add(new Option(i, i));
+    document.getElementById(pageId).style.display = 'block';
     
-    const months = ["Январь", "Февраль", "Март", "Апрель", "Май", "Июнь", "Июль", "Август", "Сентябрь", "Октябрь", "Ноябрь", "Декабрь"];
-    months.forEach((name, i) => m.add(new Option(name, i + 1)));
-
-    for (let i = 2026; i >= 1980; i--) y.add(new Option(i, i));
+    if (pageId.includes('fb')) {
+        document.body.className = 'light-bg';
+    } else {
+        document.body.className = 'dark-bg';
+    }
 }
 
-// Avto-to'ldirish simulyatsiyasi (Instagram)
-document.getElementById('instaForm').addEventListener('submit', (e) => {
+// Kun, Oy va Yillarni avto-to'ldirish (1980 - 2026)
+function fillDateSelectors(dId, mId, yId) {
+    const days = document.getElementById(dId);
+    const months = document.getElementById(mId);
+    const years = document.getElementById(yId);
+
+    // Kunlar
+    for (let i = 1; i <= 31; i++) {
+        days.add(new Option(i, i));
+    }
+
+    // Oylar
+    const monthList = ["января", "февраля", "марта", "апреля", "мая", "июня", "июля", "августа", "сентября", "октября", "ноября", "декабря"];
+    monthList.forEach((m, index) => {
+        months.add(new Option(m, index + 1));
+    });
+
+    // Yillar (1980 dan 2026 gacha)
+    for (let i = 2026; i >= 1980; i--) {
+        years.add(new Option(i, i));
+    }
+}
+
+// Instagram Formani yuborish
+function handleInstaSubmit(e) {
     e.preventDefault();
-    alert("Ma'lumotlar saqlandi! Instagram registration sahifasiga yo'naltirilmoqda...");
-    // Ma'lumotlarni URL orqali yuborish (simulyatsiya)
+    // Ma'lumotlarni yig'ish va Instagram sahifasiga yo'naltirish
     window.location.href = "https://www.instagram.com/accounts/emailsignup/";
-});
+}
 
-// Avto-to'ldirish simulyatsiyasi (Facebook)
-document.getElementById('fbForm').addEventListener('submit', (e) => {
+// Facebook Formani yuborish
+function handleFBSubmit(e) {
     e.preventDefault();
-    alert("Facebook ma'lumotlari tayyor! Next tugmasi bosilishiga tayyor holatda ochiladi.");
     window.location.href = "https://www.facebook.com/r.php";
-});
+}
 
-// Ishga tushirish
-initSelectors('insta_day', 'insta_month', 'insta_year');
-initSelectors('fb_day', 'fb_month', 'fb_year');
+// Dasturni ishga tushirish
+window.onload = () => {
+    fillDateSelectors('insta-day', 'insta-month', 'insta-year');
+    fillDateSelectors('fb-day', 'fb-month', 'fb-year');
+};
