@@ -1,149 +1,164 @@
-/* Asosiy stilizatsiya */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Zamonaviy shrift */
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
 }
 
 body {
-    background-color: #f0f2f5; /* Instagram kabi och kulrang fon */
+    background-color: #121212; /* To'q qora fon */
+    height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    color: white;
 }
 
-/* Login wrapperini markazlash */
-.login-wrapper {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-/* Markaziy login bloki */
-.login-box {
-    background-color: #ffffff;
-    border: 1px solid #dddfe2;
-    padding: 40px;
-    border-radius: 10px;
+.login-card {
+    background-color: #1c1c1c; /* Karta foni */
     width: 100%;
-    max-width: 400px;
-    text-align: center;
-    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05); /* Yengil soya */
+    max-width: 380px;
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
 }
 
-/* Sarlavha */
-.header-main {
-    display: flex;
-    align-items: center;
-    justify-content: left;
+.fz {
+    display: block;
+    font-size: 1.2rem;
+    font-weight: bold;
     margin-bottom: 5px;
 }
 
-.fz-logo {
-    font-weight: bold;
-    color: #1c1e21;
-    margin-right: 10px;
-}
-
-.frenzy-title {
-    color: #1877f2; /* Instagram ko'k rangiga yaqin */
+.brand-name {
     font-size: 2.2rem;
-    letter-spacing: 1px;
+    letter-spacing: 2px;
+    margin-bottom: 20px;
 }
 
-.tagline {
-    font-size: 0.9rem;
-    color: #606770;
-    margin-bottom: 25px;
+.login-text {
+    font-size: 1.3rem;
+    font-weight: 600;
+    margin-bottom: 20px;
+    text-align: left;
 }
 
-/* Input konteynerlari - piktogrammalar ichida bo'lishi uchun */
-.input-container {
-    background-color: #fafafa;
-    border: 1px solid #dbdbdb;
-    border-radius: 8px;
+/* Inputlar */
+.input-field {
+    background-color: #262626;
+    border: 1px solid #363636;
+    border-radius: 10px;
+    padding: 8px 12px;
     margin-bottom: 12px;
     display: flex;
     align-items: center;
-    padding: 0 10px;
+    gap: 10px;
 }
 
-.input-container input {
+.input-field.active {
+    border-color: #007bff; /* Moviy hoshiya */
+}
+
+.input-column {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.input-column label {
+    font-size: 0.65rem;
+    color: #a8a8a8;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.input-column input {
     background: transparent;
     border: none;
-    padding: 10px;
-    width: 100%;
+    color: white;
     outline: none;
     font-size: 0.95rem;
-    color: #1c1e21;
+    padding: 2px 0;
 }
 
-.input-icon {
-    color: #8d949e;
+.icon {
+    color: #a8a8a8;
     font-size: 20px;
 }
 
-.password-eye {
-    cursor: pointer;
-}
-
-/* Login tugmasi - dumaloq va ko'k gradyanli */
-.action-buttons {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-top: 15px;
-}
-
+/* Tugmalar */
 .login-btn {
-    background: linear-gradient(to right, #1877f2, #166fe5); /* Ko'k gradyan */
+    background-color: #1849a9; /* To'q ko'k tugma */
     color: white;
     border: none;
-    width: 60%;
-    padding: 10px;
-    border-radius: 20px;
+    width: 100%;
+    padding: 12px;
+    border-radius: 25px;
     font-size: 1rem;
-    font-weight: bold;
+    font-weight: 600;
     cursor: pointer;
-    transition: transform 0.2s, box-shadow 0.2s;
+    margin-top: 10px;
 }
 
-.login-btn:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(24, 119, 242, 0.3);
-}
-
-.forgot-link {
-    color: #1877f2;
-    text-decoration: none;
-    font-size: 0.85rem;
-}
-
-/* Footer qismi */
-.login-footer {
-    margin-top: 20px;
+.forgot-pwd {
+    display: block;
     text-align: center;
-    font-size: 0.9rem;
-    color: #606770;
-}
-
-.signup-link {
-    color: #1877f2;
+    color: #e0e0e0;
     text-decoration: none;
-    font-weight: bold;
+    font-size: 0.9rem;
+    font-weight: 600;
+    margin: 20px 0;
 }
 
-.meta-ai {
-    color: #8d949e;
+.divider-line {
+    height: 1px;
+    background-color: #363636;
+    margin-bottom: 20px;
+}
+
+.fb-btn, .create-acc-btn {
+    background: transparent;
+    border: 1px solid #363636;
+    color: white;
+    width: 100%;
+    padding: 10px;
+    border-radius: 25px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.create-acc-btn {
+    border-color: #1849a9;
+    color: #4dabff;
+}
+
+/* Footer */
+.footer {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.footer-divider {
+    height: 1px;
+    background-color: #363636;
+    margin-bottom: 15px;
+}
+
+.meta-txt {
+    color: #a8a8a8;
     font-size: 0.8rem;
-    margin-top: 15px;
 }
 
-.build-tomorrow {
-    color: #606770;
-    font-size: 0.75rem;
+.tomorrow-txt {
+    color: #737373;
+    font-size: 0.7rem;
     margin-top: 5px;
-    letter-spacing: 0.5px;
+    letter-spacing: 1px;
 }
