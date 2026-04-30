@@ -5,39 +5,43 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Frenzy Login</title>
     <link rel="stylesheet" href="style.css">
-    <!-- Ikonkalar uchun Google Fonts dan foydalanamiz -->
+    <!-- Ikonkalar uchun Google Fonts linki -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
 </head>
 <body>
-    <div class="login-container">
-        <header>
-            <span class="logo-small">FZ</span>
-            <h1 class="main-logo">FRENZY</h1>
-            <p class="tagline">CONNECT AND DISCOVER</p>
-        </header>
+    <div class="login-wrapper">
+        <div class="login-box">
+            <header>
+                <div class="header-main">
+                    <span class="fz-logo">FZ</span>
+                    <h1 class="frenzy-title">FRENZY</h1>
+                </div>
+                <p class="tagline">CONNECT AND DISCOVER</p>
+            </header>
 
-        <form class="login-form">
-            <div class="input-group">
-                <span class="material-symbols-outlined">alternate_email</span>
-                <input type="email" placeholder="yjasur039@gmail.com" required>
-            </div>
-            
-            <div class="input-group">
-                <input type="password" placeholder="********" required>
-                <span class="material-symbols-outlined visibility">visibility</span>
-            </div>
+            <form class="login-form">
+                <div class="input-container">
+                    <span class="material-symbols-outlined input-icon">alternate_email</span>
+                    <input type="email" value="yjasur039@gmail.com" required placeholder="yjasur039@gmail.com">
+                </div>
+                
+                <div class="input-container">
+                    <input type="password" placeholder="********" required>
+                    <span class="material-symbols-outlined input-icon password-eye">visibility</span>
+                </div>
 
-            <button type="submit" class="login-btn">LOG IN</button>
-            
-            <a href="#" class="forgot-password">Forgot Password?</a>
-        </form>
+                <div class="action-buttons">
+                    <button type="submit" class="login-btn">LOG IN</button>
+                    <a href="#" class="forgot-link">Forgot Password?</a>
+                </div>
+            </form>
+        </div>
 
-        <footer class="login-footer">
+        <div class="login-footer">
             <p>New to Frenzy? <a href="#" class="signup-link">Sign Up</a></p>
-            <div class="divider"></div>
             <p class="meta-ai">Powered by Meta AI</p>
             <p class="build-tomorrow">BUILDING TOMORROW TOGETHER</p>
-        </footer>
+        </div>
     </div>
 </body>
 </html>
