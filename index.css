@@ -1,152 +1,96 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-}
-
 body {
-    background-color: #000000; /* To'liq qora */
-    height: 100vh;
+    background-color: #000;
     display: flex;
     justify-content: center;
     align-items: center;
-    color: white;
+    min-height: 100vh;
+    font-family: sans-serif;
+    margin: 0;
 }
 
-.login-card {
-    background-color: #121212; /* Karta foni */
-    width: 100%;
-    max-width: 380px;
-    padding: 30px;
-    border-radius: 20px;
-    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.8);
-}
-
-/* Sarlavha qismini markazlash */
-.brand-header {
-    text-align: center;
-    margin-bottom: 30px;
-}
-
-.logo-wrapper {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 15px;
-}
-
-/* Rasmda ko'rsatilgan FZ logotipi */
-.fz-logo-box {
-    width: 65px;
-    height: 65px;
-    background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
-    border-radius: 18px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 3px;
-}
-
-.fz-logo-box span {
-    background-color: #121212;
-    width: 100%;
-    height: 100%;
-    border-radius: 15px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: white;
-    font-size: 26px;
-    font-weight: 900;
-    font-style: italic;
-    font-family: 'Arial Black', sans-serif;
-}
-
-.frenzy-title {
-    font-size: 32px;
-    letter-spacing: 4px;
-    text-transform: uppercase;
-    margin-bottom: 5px;
-}
-
-.login-heading {
-    font-size: 18px;
-    font-weight: 500;
-    color: #a8a8a8;
-}
-
-/* Inputlar */
-.input-field {
-    background-color: #262626;
-    border: 1px solid #363636;
+.container {
+    width: 400px;
+    padding: 25px;
     border-radius: 12px;
-    padding: 10px 15px;
-    margin-bottom: 15px;
-    display: flex;
-    align-items: center;
-    gap: 12px;
-}
-
-.input-field.active { border-color: #0095f6; }
-
-.input-column { display: flex; flex-direction: column; width: 100%; }
-
-.input-column label { font-size: 10px; color: #a8a8a8; margin-bottom: 2px; }
-
-.input-column input {
-    background: transparent;
-    border: none;
-    color: white;
-    outline: none;
-    font-size: 14px;
-}
-
-.icon { color: #a8a8a8; font-size: 20px; }
-
-/* Tugmalar */
-.login-btn {
-    background: linear-gradient(to right, #1849a9, #1a56cc);
-    color: white;
-    border: none;
-    width: 100%;
-    padding: 12px;
-    border-radius: 25px;
-    font-size: 1rem;
-    font-weight: 600;
-    cursor: pointer;
-    margin-top: 10px;
-}
-
-.forgot-pwd {
-    display: block;
     text-align: center;
-    color: #0095f6;
-    text-decoration: none;
-    font-size: 14px;
-    margin: 20px 0;
 }
 
-.divider-line { height: 1px; background-color: #363636; margin-bottom: 20px; }
+/* Dark Theme (Instagram) */
+.dark-theme {
+    background-color: #121212;
+    color: #fff;
+    border: 1px solid #333;
+}
 
-.fb-btn, .create-acc-btn {
-    background: transparent;
-    border: 1px solid #363636;
-    color: white;
+/* Light Theme (Facebook) */
+.light-theme {
+    background-color: #fff;
+    color: #000;
+}
+
+.input-group, .input-row {
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+input, select {
     width: 100%;
     padding: 12px;
-    border-radius: 25px;
-    cursor: pointer;
-    margin-bottom: 12px;
+    border-radius: 6px;
+    border: 1px solid #333;
+    background: #1e1e1e;
+    color: white;
+    margin-top: 5px;
+}
+
+.light-theme input, .light-theme select {
+    background: #f5f6f7;
+    color: #000;
+    border: 1px solid #ddd;
+}
+
+.select-wrapper {
     display: flex;
-    align-items: center;
-    justify-content: center;
     gap: 10px;
 }
 
-.create-acc-btn { border-color: #0095f6; color: #0095f6; }
+.blue-btn {
+    background: #0095f6;
+    color: white;
+    border: none;
+    width: 100%;
+    padding: 10px;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+}
 
-/* Footer */
-.footer { text-align: center; margin-top: 25px; }
-.footer-divider { height: 1px; background-color: #363636; margin-bottom: 15px; }
-.meta-txt { color: #a8a8a8; font-size: 13px; }
-.tomorrow-txt { color: #737373; font-size: 11px; margin-top: 5px; }
+.fb-blue-btn {
+    background: #1877f2;
+    color: white;
+    width: 100%;
+    padding: 12px;
+    border-radius: 6px;
+    border: none;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.fb-green-btn {
+    background: #42b72a;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 6px;
+    font-weight: bold;
+}
+
+.outline-btn {
+    background: transparent;
+    color: #a8a8a8;
+    border: 1px solid #333;
+    width: 100%;
+    margin-top: 10px;
+    padding: 8px;
+    cursor: pointer;
+}
