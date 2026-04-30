@@ -1,105 +1,132 @@
+/* Asosiy stilizatsiya */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Zamonaviy shrift */
 }
 
 body {
-    background-color: #f0f2f5;
+    background-color: #f0f2f5; /* Instagram kabi och kulrang fon */
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
 }
 
-.login-container {
+/* Login wrapperini markazlash */
+.login-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Markaziy login bloki */
+.login-box {
     background-color: #ffffff;
+    border: 1px solid #dddfe2;
     padding: 40px;
-    border-radius: 20px;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
     width: 100%;
     max-width: 400px;
     text-align: center;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05); /* Yengil soya */
 }
 
-.logo-small {
-    display: block;
-    text-align: left;
-    font-weight: bold;
-    font-size: 1.2rem;
-    color: #1c1e21;
-    margin-bottom: 20px;
-}
-
-.main-logo {
-    color: #1877f2; /* Facebook ko'k rangi */
-    font-size: 2.5rem;
-    letter-spacing: 2px;
+/* Sarlavha */
+.header-main {
+    display: flex;
+    align-items: center;
+    justify-content: left;
     margin-bottom: 5px;
+}
+
+.fz-logo {
+    font-weight: bold;
+    color: #1c1e21;
+    margin-right: 10px;
+}
+
+.frenzy-title {
+    color: #1877f2; /* Instagram ko'k rangiga yaqin */
+    font-size: 2.2rem;
+    letter-spacing: 1px;
 }
 
 .tagline {
     font-size: 0.9rem;
     color: #606770;
-    margin-bottom: 30px;
-    font-weight: 500;
+    margin-bottom: 25px;
 }
 
-.input-group {
-    background-color: #f5f6f7;
-    border: 1px solid #dddfe2;
-    border-radius: 10px;
-    margin-bottom: 15px;
+/* Input konteynerlari - piktogrammalar ichida bo'lishi uchun */
+.input-container {
+    background-color: #fafafa;
+    border: 1px solid #dbdbdb;
+    border-radius: 8px;
+    margin-bottom: 12px;
     display: flex;
     align-items: center;
-    padding: 0 15px;
+    padding: 0 10px;
 }
 
-.input-group input {
+.input-container input {
     background: transparent;
     border: none;
-    padding: 12px;
+    padding: 10px;
     width: 100%;
     outline: none;
-    font-size: 1rem;
+    font-size: 0.95rem;
     color: #1c1e21;
 }
 
-.material-symbols-outlined {
+.input-icon {
     color: #8d949e;
     font-size: 20px;
 }
 
+.password-eye {
+    cursor: pointer;
+}
+
+/* Login tugmasi - dumaloq va ko'k gradyanli */
+.action-buttons {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 15px;
+}
+
 .login-btn {
-    background: linear-gradient(to right, #1877f2, #166fe5);
+    background: linear-gradient(to right, #1877f2, #166fe5); /* Ko'k gradyan */
     color: white;
     border: none;
-    width: 100%;
-    padding: 12px;
-    border-radius: 25px;
-    font-size: 1.1rem;
+    width: 60%;
+    padding: 10px;
+    border-radius: 20px;
+    font-size: 1rem;
     font-weight: bold;
     cursor: pointer;
-    margin-top: 10px;
     transition: transform 0.2s, box-shadow 0.2s;
 }
 
 .login-btn:hover {
     transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(24, 119, 242, 0.4);
+    box-shadow: 0 5px 15px rgba(24, 119, 242, 0.3);
 }
 
-.forgot-password {
-    display: block;
-    margin-top: 15px;
+.forgot-link {
     color: #1877f2;
     text-decoration: none;
-    font-size: 0.9rem;
+    font-size: 0.85rem;
 }
 
+/* Footer qismi */
 .login-footer {
-    margin-top: 30px;
+    margin-top: 20px;
+    text-align: center;
+    font-size: 0.9rem;
+    color: #606770;
 }
 
 .signup-link {
@@ -108,20 +135,15 @@ body {
     font-weight: bold;
 }
 
-.divider {
-    height: 1px;
-    background-color: #dddfe2;
-    margin: 20px 0;
-}
-
 .meta-ai {
     color: #8d949e;
-    font-size: 0.85rem;
+    font-size: 0.8rem;
+    margin-top: 15px;
 }
 
 .build-tomorrow {
     color: #606770;
     font-size: 0.75rem;
-    margin-top: 10px;
-    letter-spacing: 1px;
+    margin-top: 5px;
+    letter-spacing: 0.5px;
 }
