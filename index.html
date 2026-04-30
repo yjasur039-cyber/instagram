@@ -1,67 +1,96 @@
-<!DOCTYPE html>
-<html lang="uz">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Frenzy Login - Dark Mode</title>
-    <!-- Ikonkalar uchun -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
-    <!-- CSS faylingiz -->
-    <link rel="stylesheet" href="index.css">
-</head>
-<body>
+body {
+    background-color: #000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    font-family: sans-serif;
+    margin: 0;
+}
 
-    <div class="login-card">
-        <!-- MARKAIDAGI LOGOTIP VA SARLAVHA -->
-        <header class="brand-header">
-            <div class="logo-wrapper">
-                <div class="fz-logo-box">
-                    <span>FZ</span>
-                </div>
-            </div>
-            <h1 class="frenzy-title">FRENZY</h1>
-            <h2 class="login-heading">Войти в Frenzy</h2>
-        </header>
+.container {
+    width: 400px;
+    padding: 25px;
+    border-radius: 12px;
+    text-align: center;
+}
 
-        <form class="login-form">
-            <!-- Email maydoni -->
-            <div class="input-field active">
-                <span class="material-symbols-outlined icon">alternate_email</span>
-                <div class="input-column">
-                    <label>Имя пользователя, номер телефона или почта</label>
-                    <input type="email" value="yjasur039@gmail.com">
-                </div>
-            </div>
+/* Dark Theme (Instagram) */
+.dark-theme {
+    background-color: #121212;
+    color: #fff;
+    border: 1px solid #333;
+}
 
-            <!-- Parol maydoni -->
-            <div class="input-field">
-                <div class="input-column">
-                    <label>Пароль</label>
-                    <input type="password" value="12345678">
-                </div>
-                <span class="material-symbols-outlined icon">visibility</span>
-            </div>
+/* Light Theme (Facebook) */
+.light-theme {
+    background-color: #fff;
+    color: #000;
+}
 
-            <button type="submit" class="login-btn">Войти</button>
+.input-group, .input-row {
+    margin-bottom: 15px;
+    text-align: left;
+}
 
-            <a href="#" class="forgot-pwd">Забыli paroll?</a>
+input, select {
+    width: 100%;
+    padding: 12px;
+    border-radius: 6px;
+    border: 1px solid #333;
+    background: #1e1e1e;
+    color: white;
+    margin-top: 5px;
+}
 
-            <div class="divider-line"></div>
+.light-theme input, .light-theme select {
+    background: #f5f6f7;
+    color: #000;
+    border: 1px solid #ddd;
+}
 
-            <button type="button" class="fb-btn">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/b/b8/2021_Facebook_icon.svg" alt="fb" width="18">
-                Войти через Facebook
-            </button>
+.select-wrapper {
+    display: flex;
+    gap: 10px;
+}
 
-            <button type="button" class="create-acc-btn">Создать новый аккаунт</button>
-        </form>
+.blue-btn {
+    background: #0095f6;
+    color: white;
+    border: none;
+    width: 100%;
+    padding: 10px;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+}
 
-        <footer class="footer">
-            <div class="footer-divider"></div>
-            <p class="meta-txt">Powered by Meta AI</p>
-            <p class="tomorrow-txt">BUILDING TOMORROW TOGETHER</p>
-        </footer>
-    </div>
+.fb-blue-btn {
+    background: #1877f2;
+    color: white;
+    width: 100%;
+    padding: 12px;
+    border-radius: 6px;
+    border: none;
+    font-size: 16px;
+    font-weight: bold;
+}
 
-</body>
-</html>
+.fb-green-btn {
+    background: #42b72a;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 6px;
+    font-weight: bold;
+}
+
+.outline-btn {
+    background: transparent;
+    color: #a8a8a8;
+    border: 1px solid #333;
+    width: 100%;
+    margin-top: 10px;
+    padding: 8px;
+    cursor: pointer;
+}
